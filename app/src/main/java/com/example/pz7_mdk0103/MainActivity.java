@@ -1,5 +1,6 @@
 package com.example.pz7_mdk0103;
 
+import android.annotation.SuppressLint;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView imgMap;
     ImageView imgDial;
     ImageView imgMail;
+    ImageView imgContact;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         imgMap = (ImageView) findViewById(R.id.img_map);
         imgDial = (ImageView) findViewById(R.id.img_dial);
         imgMail = (ImageView) findViewById(R.id.img_mail);
+        imgContact = (ImageView) findViewById(R.id.img_contact);
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation);
 
@@ -38,23 +42,31 @@ public class MainActivity extends AppCompatActivity {
                 new BottomNavigationView.OnNavigationItemSelectedListener(){
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-//                        switch (menuItem.getItemId()){
-//                            case R.id.action_map:
-//                                imgMap.setVisibility(View.VISIBLE);
-//                                imgDial.setVisibility(View.GONE);
-//                                imgMail.setVisibility(View.GONE);
-//                                break;
-//                            case R.id.action_dial:
-//                                imgMap.setVisibility(View.GONE);
-//                                imgDial.setVisibility(View.VISIBLE);
-//                                imgMail.setVisibility(View.GONE);
-//                                break;
-//                            case R.id.action_mail:
-//                                imgMap.setVisibility(View.GONE);
-//                                imgDial.setVisibility(View.GONE);
-//                                imgMail.setVisibility(View.VISIBLE);
-//                                break;
-//                        }
+                        if (menuItem.getItemId() == R.id.navigation_home) {
+                            imgMap.setVisibility(View.VISIBLE);
+                            imgDial.setVisibility(View.GONE);
+                            imgMail.setVisibility(View.GONE);
+                            imgContact.setVisibility(View.GONE);
+                            return true;
+                        } else if (menuItem.getItemId() == R.id.navigation_dashboard) {
+                            imgMap.setVisibility(View.GONE);
+                            imgDial.setVisibility(View.VISIBLE);
+                            imgMail.setVisibility(View.GONE);
+                            imgContact.setVisibility(View.GONE);
+                            return true;
+                        }else if (menuItem.getItemId() == R.id.navigation_notifications) {
+                            imgMap.setVisibility(View.GONE);
+                            imgDial.setVisibility(View.GONE);
+                            imgMail.setVisibility(View.VISIBLE);
+                            imgContact.setVisibility(View.GONE);
+                            return true;
+                        }else if (menuItem.getItemId() == R.id.navigation_contacts) {
+                            imgMap.setVisibility(View.GONE);
+                            imgDial.setVisibility(View.GONE);
+                            imgMail.setVisibility(View.GONE);
+                            imgContact.setVisibility(View.VISIBLE);
+                            return true;
+                        }
                         return false;
                     }
 

@@ -15,4 +15,9 @@
         android:id="@+id/navigation_notifications"
         android:icon="@drawable/email"
         android:title="@string/mail"/>
+
+    <item
+        android:id="@+id/navigation_contacts"
+        android:icon="@drawable/contacts"
+        android:title="Контакты"/>
 </menu>
